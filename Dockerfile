@@ -6,7 +6,7 @@ RUN apt-get update &&\
     apt-get clean &&\
     useradd -m openwrt &&\
     echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt &&\
-    sudo -iu openwrt git clone git://git.openwrt.org/15.05/openwrt.git &&\
+    sudo -iu openwrt git clone --branch v15.05 https://github.com/openwrt/openwrt.git &&\
     sudo -iu openwrt cp openwrt/feeds.conf.default openwrt/feeds.conf &&\
     sudo -iu openwrt sh -c "echo 'src-git softethervpn https://github.com/el1n/OpenWRT-package-softether.git' >> openwrt/feeds.conf" &&\
     sudo -iu openwrt openwrt/scripts/feeds update
